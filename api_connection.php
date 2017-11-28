@@ -18,17 +18,21 @@ $twitter = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $acc
 //get tweets
 if(isset($_GET['search'])){
     $search_query = $_GET['search_query'];
-    if(isset($search_query)){
+    if(isset($search_query) && strlen($search_query) > 0){
         $tweets = $twitter->get(
             'search/tweets',
             array("q" => ".$search_query.", "result_type" => "recent", "count" => 20, "lang"=>"en")
             );
         foreach($tweets as $tweet){
             foreach($tweet as $t){
-                print_r($t->text);
-                '<br>';   
-                exit;
+                
+                if($t->text && $t->user->profile_image_url){
+                    echo '<img src="'.$t->user->profile_image_url.'">';
+                    print_r($t->text);
+                    echo'<br><br>';
+                }
             }
+            exit;
         }
     }
 }
