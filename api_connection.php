@@ -16,27 +16,27 @@ $twitter = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $acc
 // $content = $connection->get("account/verify_credentials");
 // print_r($content);
 //get tweets
-if(isset($_GET['search'])){
-    $search_query = $_GET['search_query'];
+  $search_query = $_GET['search_query'];
+    
     if(isset($search_query) && strlen($search_query) > 0){
+        
         $tweets = $twitter->get(
             'search/tweets',
-            array("q" => ".$search_query.", "result_type" => "recent", "count" => 20, "lang"=>"en")
+            array("q" => ".$search_query.", "result_type" => "recent", "count" => 10, "lang"=>"en")
             );
+        
         foreach($tweets as $tweet){
+            
             foreach($tweet as $t){
-                
-                if($t->text && $t->user->profile_image_url){
-                    echo '<img src="'.$t->user->profile_image_url.'">';
-                    print_r($t->text);
-                    echo'<br><br>';
+                echo $t->text;    
+                //if($t->text && $t->user->profile_image_url){
+                    // echo '<img src="'.$t->user->profile_image_url.'">';
+                    // print_r($t->text);
+                    // echo'<br><br>';
+                    
                 }
             }
-            exit;
         }
-    }
-}
-
 // $tweets = $connection->get(' https://api.twitter.com/1.1/search/tweets.json?q=merhaba&result_type=recent');
 // print_r($tweets);
 ?>
