@@ -16,19 +16,25 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." id="token" name="search_query">
                     <span class="input-group-btn">
-                        <button class="btn btn-primary" type="submit" id="search">Search</button>
+                        <button class="btn btn-primary" type="submit" name="submit" id="search">Search</button>
                     </span>
                 </div>
             </div>
-            <p id = "tweets"></p>
-        <?php
+        <?php   
+        // if(isset($_POST['stat'])){
             for($i=0;$i<10;$i++){
-        ?>
-            <p id="tweet<?php echo $i?>">
-            </p>
-            <img src="" alt="" id = "url<?php echo $i?>">
+            ?>
+            <br>
+            <div id="card<?php echo $i?>">
+            <div id="card-body<?php echo $i?>">
+                <p id="tweet<?php echo $i?>" class="float-left"></p>
+                <img src="" alt="" id = "url<?php echo $i?>" class="card-img-top float-right">
+
+        </div>
+        </div>
         <?php
             }
+        // }
         ?>
 <nav aria-label="Page navigation example">
 <ul id="pagination-demo" class="pagination-sm justify-content-center"></ul>

@@ -19,7 +19,11 @@ $(document).ready(function(){
                     //console.log(obj[tweet_no].text);  
                     $("#tweet"+i+"").text(obj[tweet_no+i].text);
                     $("#url"+i+"").attr("src",obj[tweet_no+i].url);
-                    }
+                    $("#card"+i+"").addClass("card");
+                    $("#card-body"+i+"").addClass("card-body");
+                    $("#tweet"+i+"").addClass("card-text");
+                }
+                    
                 }
             });
         });
