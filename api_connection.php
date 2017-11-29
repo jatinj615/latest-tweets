@@ -35,7 +35,7 @@ $twitter = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $acc
                     if(isset($t->entities->media[0]->media_url)){
                         $text[$i]["url"] = $t->entities->media[0]->media_url;
                     }else{
-                        $text[$i]["url"] = "no-image.png";
+                        $text[$i]["url"] = "no-photo.png";
                     }
                     $i++;
                 }

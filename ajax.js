@@ -22,6 +22,8 @@ $(document).ready(function(){
                     $("#card"+i+"").addClass("card");
                     $("#card-body"+i+"").addClass("card-body");
                     $("#tweet"+i+"").addClass("card-text");
+                    $("#button"+i+"").addClass("btn-primary");
+                    $("#button"+i+"").text("Add to Queue");
                 }
                     
                 }

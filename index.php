@@ -26,16 +26,17 @@
             ?>
             <br>
             <div id="card<?php echo $i?>">
+            <img src="" alt="" id = "url<?php echo $i?>" class="card-img-top float-right">
             <div id="card-body<?php echo $i?>">
                 <p id="tweet<?php echo $i?>" class="float-left"></p>
-                <img src="" alt="" id = "url<?php echo $i?>" class="card-img-top float-right">
-
+                <a href="#" class="btn float-right" id="button<?php echo $i?>"></a>
         </div>
         </div>
         <?php
             }
         // }
         ?>
+        <br>
 <nav aria-label="Page navigation example">
 <ul id="pagination-demo" class="pagination-sm justify-content-center"></ul>
 </nav>
