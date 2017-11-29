@@ -22,7 +22,7 @@ $twitter = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $acc
         
         $tweets = $twitter->get(
             'search/tweets',
-            array("q" => ".$search_query.", "result_type" => "recent", "count" => 100, "lang"=>"en")
+            array("q" => ".$search_query.", "result_type" => "recent", "count" => 100, "lang"=>"en", "include_entities" =>true)
             );
         
         foreach($tweets as $tweet){
@@ -30,15 +30,19 @@ $twitter = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $acc
             $i = 0;
             foreach($tweet as $t){
                     
-                if($t->text && $t->user->profile_image_url){
+                if(isset($t->text)){
                     $text[$i]["text"] = $t->text;
-                    $text[$i]["url"] = $t->user->profile_image_url;
+                    if(isset($t->entities->media[0]->media_url)){
+                        $text[$i]["url"] = $t->entities->media[0]->media_url;
+                    }else{
+                        $text[$i]["url"] = "";
+                    }
                     $i++;
                 }
                 }
                 break;
             }
-                echo json_encode($text);
+               echo json_encode($text);
             
         }
 

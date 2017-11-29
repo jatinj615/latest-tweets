@@ -20,9 +20,16 @@
                     </span>
                 </div>
             </div>
-        <p id="tweets">
-
-        </p>
+            <p id = "tweets"></p>
+        <?php
+            for($i=0;$i<100;$i++){
+        ?>
+            <p id="tweet<?php echo $i?>">
+            </p>
+            <img src="" alt="" id = "url<?php echo $i?>">
+        <?php
+            }
+        ?>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
