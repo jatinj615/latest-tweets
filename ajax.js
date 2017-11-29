@@ -7,10 +7,20 @@ $(document).ready(function(){
             //console.log(data)
             var obj = $.parseJSON(data);
             var i = 0;
-            $.each(obj,function(key,value){
-                $("#tweet"+i+"").text(value.text);
-                $("#url"+i+"").attr("src",value.url);
-                i++;
+            $('#pagination-demo').twbsPagination({
+                totalPages: 10,
+                visiblePages: 10,
+                next: 'Next',
+                prev: 'Prev',
+                onPageClick: function (event, page) {
+                    for(i=0;i<10;i++){
+                    var tweet_no = (page-1)*10;
+                    console.log(tweet_no);
+                    //console.log(obj[tweet_no].text);  
+                    $("#tweet"+i+"").text(obj[tweet_no+i].text);
+                    $("#url"+i+"").attr("src",obj[tweet_no+i].url);
+                    }
+                }
             });
         });
     });
