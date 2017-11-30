@@ -24,10 +24,15 @@ $(document).ready(function(){
                     $("#tweet"+i+"").addClass("card-text");
                     $("#button"+i+"").addClass("btn-primary");
                     $("#button"+i+"").text("Add to Queue");
-                }
+                    
                     
                 }
+            }
             });
+                        
         });
     });
+    
 });
+
+

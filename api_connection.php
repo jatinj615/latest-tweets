@@ -29,7 +29,7 @@ $twitter = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $acc
             //print_r($tweet);
             $i = 0;
             foreach($tweet as $t){
-                    
+                $text[$i]['index']= $i;
                 if(isset($t->text)){
                     $text[$i]["text"] = $t->text;
                     if(isset($t->entities->media[0]->media_url)){

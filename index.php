@@ -29,7 +29,7 @@
             <img src="" alt="" id = "url<?php echo $i?>" class="card-img-top float-right">
             <div id="card-body<?php echo $i?>">
                 <p id="tweet<?php echo $i?>" class="float-left"></p>
-                <a href="#" class="btn float-right" id="button<?php echo $i?>"></a>
+                <a class="btn float-right" id="button<?php echo $i?>" onclick="saveDatabase(<?php echo $i?>)"></a>
         </div>
         </div>
         <?php
@@ -47,7 +47,8 @@
 <script src="ajax.js">
 </script>
 <script src="pagination.js">
-    
+</script>
+<script src='database_save.js'>    
 </script>
 </body>
 </html>
